@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Géolocalisation
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button (click)="getLocation()">Me géolocaliser</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+    <ion-card-content *ngIf="coords || accuracy || error">
+      <p *ngIf="coords">Position : {{ coords.latitude }}, {{ coords.longitude }}</p>
+      <p *ngIf="accuracy">Précision : {{ accuracy }} mètres</p>
+      <p *ngIf="error" ion-text color="danger">{{ error }}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
